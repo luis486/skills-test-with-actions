@@ -28,14 +28,17 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-      
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      # Install remark-cli and remark-preset-lint-consistent
+      - name: Install remark-cli and remark-preset-lint-consistent
+        run: npm install remark-cli remark-preset-lint-consistent
+
+      # Run markdown lint
       - name: Run markdown lint
-        run: |
-          npm install remark-cli remark-preset-lint-consistent
-          npx remark . --use remark-preset-lint-consistent --frail
+        run: npx remark . --use remark-preset-lint-consistent --frail
